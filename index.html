@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小迈数字人助手</title>
+    <style>
+        /* 步骤 1：让 html 和 body 占满整个浏览器视口高度 */
+html, body {
+  height: 100%;
+  margin: 0; /* 清除默认边距，避免出现滚动条或空隙 */
+}
+
+/* 步骤 2：让 #app 容器也占满父容器（body）的高度 */
+#app {
+  height: 100%;
+  /* 可选：添加背景色，方便直观看到容器范围 */
+  background-color: #f5f5f5;
+}
+
+/* 步骤 3：iframe 自身保持 100% 宽高（你已设置，可保留） */
+iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+      </style>
+</head>
+<body>
+  <div id="app"></div>
+<script type="text/javascript">
+  var webSdkScript = document.createElement('script');
+  webSdkScript.src = 'https://lf-cdn.coze.cn/obj/unpkg/flow-platform/builder-web-sdk/0.1.0/dist/umd/index.js';
+  document.head.appendChild(webSdkScript);
+  webSdkScript.onload = function () {
+    new CozeWebSDK.AppWebSDK({
+      "token": "pat_0YB4VMCyCAMKngB9KWAQf9lKwQPMzHwAKt8dPs9l4AWOQCtISlr1mnLtlZBT8NZK",
+      "appId": "7545716478213931023",
+      "container": "#app",
+      "userInfo": {
+        "id": "",
+        "url": "",
+        "nickname": "User"
+      }
+    });
+  }
+</script>
+</body>
+</html>
